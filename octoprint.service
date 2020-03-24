@@ -1,0 +1,13 @@
+[Unit]
+Description=Octoprint service
+After=network.target
+
+[Service]
+User=octoprint
+Group=octoprint
+Restart=always
+ExecStart=/home/octoprint/bin/octoprint serve
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,2 @@
+[prusa]
+prusa.lan   ansible_user=ubuntu
