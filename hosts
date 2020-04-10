@@ -1,2 +1,10 @@
 [prusa]
 prusa.lan   ansible_user=ubuntu
+
+[iron_man]
+iron-man.lan
+
+[docker_swarm]
+node-01.lan
+node-02.lan
+node-03.lan
