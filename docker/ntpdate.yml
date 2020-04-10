@@ -1,0 +1,14 @@
+---
+- name: update date
+  hosts: docker_swarm
+  become_method: sudo
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: update datetime via ntpdate
+      shell:
+        cmd: |
+          ntpdate 192.168.50.3
+      args:
+        executable: /bin/bash

@@ -5,6 +5,6 @@ prusa.lan   ansible_user=ubuntu
 iron-man.lan
 
 [docker_swarm]
-node-01.lan
-node-02.lan
-node-03.lan
+node-01.lan docker_node=node-01
+node-02.lan docker_node=node-02
+node-03.lan docker_node=node-03

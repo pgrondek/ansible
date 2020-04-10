@@ -1,0 +1,36 @@
+---
+- name: reboot nodes
+  hosts: docker_swarm
+  become_method: sudo
+  become_user: root
+  become: yes
+  serial: 1
+
+  tasks:
+    - name: drain docker swarm
+      shell:
+        cmd: |
+          docker node update {{ docker_node }} --availability drain
+          sleep 30
+
+    - name: reboot
+      reboot:
+        msg: "Rebooting"
+        connect_timeout: 5
+        reboot_timeout: 600
+        pre_reboot_delay: 0
+        post_reboot_delay: 30
+        test_command: whoami
+
+    - name: update datetime via ntpdate
+      shell:
+        cmd: |
+          ntpdate 192.168.50.3
+      args:
+        executable: /bin/bash
+
+    - name: drain docker swarm
+      shell:
+        cmd: |
+          docker node update {{ docker_node }} --availability active
+          sleep 30
