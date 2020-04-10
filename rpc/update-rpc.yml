@@ -1,0 +1,24 @@
+---
+- name: update rpc-statd
+  hosts: docker_swarm
+  become_method: sudo
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: update rpc config
+      copy:
+        src: rpc-statd.service
+        dest: /lib/systemd/system/rpc-statd.service
+
+    - name: stop and disable rpc
+      systemd:
+        name: rpc-statd
+        state: stopped
+        enabled: false
+
+    - name: start and enable rpc
+      systemd:
+        name: rpc-statd
+        state: started
+        enabled: true
