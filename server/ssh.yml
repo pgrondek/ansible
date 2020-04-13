@@ -1,0 +1,9 @@
+---
+- name: copy ssh keys
+  hosts: server
+
+  tasks:
+    - name: copy authorized_keys
+      copy:
+        src: authorized_keys
+        dest: ${HOME}/.ssh/authorized_keys
