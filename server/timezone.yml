@@ -1,0 +1,14 @@
+---
+- name: set timezone
+  hosts: server
+  become_method: sudo
+  become_user: root
+  become: yes
+  vars:
+    timezone: Europe/Warsaw
+
+  tasks:
+    - name: set timezone
+      shell:
+        cmd: |
+          timedatectl set-timezone {{ timezone }}

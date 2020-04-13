@@ -1,11 +1,17 @@
 ---
-- name: update rpc-statd
+- name: setup nfs-client
   hosts: docker_swarm
   become_method: sudo
   become_user: root
   become: yes
 
   tasks:
+    - name: install nfs-client
+      apt:
+        update_cache: yes
+        pkg:
+          - nfs-common
+
     - name: update rpc config
       copy:
         src: rpc-statd.service

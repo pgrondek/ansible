@@ -1,0 +1,14 @@
+---
+- name: update software
+  hosts: docker_swarm, iron_man
+  become_method: sudo
+  become_user: root
+  become: yes
+  serial: 1
+
+  tasks:
+    - name: update apt
+      apt:
+        update_cache: yes
+        name: "*"
+        state: latest
