@@ -1,6 +1,6 @@
 ---
 - name: install octoprint
-  hosts: prusa
+  hosts: prusa.lan
   become_method: sudo
   become_user: root
   become: yes
@@ -45,3 +45,8 @@
         name: octoprint
         enabled: yes
         state: started
+    - name: enable octoprint to restart itself
+      copy:
+        src: sudoers.conf
+        dest: /etc/sudoers.d/octoprint
+        mode: 0440
