@@ -30,7 +30,7 @@
       shell:
         chdir: /home/octoprint
         cmd: |
-          virtualenv .
+          virtualenv –system-site-packages .
           source bin/activate
           pip install pip --upgrade
           pip install octoprint
