@@ -1,0 +1,20 @@
+---
+- name: cleanup ubuntu
+  hosts: server
+  become_method: sudo
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: clean packages
+      apt:
+        pkg:
+          - snapd
+          - cloud-init
+          - lxd
+          - lxd-client
+        state: absent
+    - name: disable ubuntu ads
+      copy:
+        src: etc/default/motd-news
+        dest: /etc/default/motd-news
