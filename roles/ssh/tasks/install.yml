@@ -1,0 +1,7 @@
+---
+- name: install ssh
+  become: yes
+  apt:
+    update_cache: yes
+    pkg:
+      - openssh-server
