@@ -1,11 +1,6 @@
 ---
-- name: cleanup ubuntu
-  hosts: server
-  become_method: sudo
-  become_user: root
-  become: yes
-
-  tasks:
+- become: yes
+  block:
     - name: clean packages
       apt:
         pkg:
@@ -14,6 +9,7 @@
           - lxd
           - lxd-client
         state: absent
+
     - name: disable ubuntu ads
       copy:
         src: etc/default/motd-news

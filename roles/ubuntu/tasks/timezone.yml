@@ -1,0 +1,6 @@
+---
+- name: set timezone
+  become: yes
+  shell:
+    cmd: |
+      timedatectl set-timezone {{ timezone }}

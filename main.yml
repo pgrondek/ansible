@@ -1,12 +1,18 @@
 ---
-- hosts: server
+- hosts: iron-man.lan
   roles:
     - ssh
+    - ubuntu
 
 - hosts: prusa.lan
   roles:
+    - ssh
     - octoprint
+    - ubuntu
 
 - hosts: docker_cluster
   roles:
+    - ssh
     - docker-cluster
+    - ubuntu
+
