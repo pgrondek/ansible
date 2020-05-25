@@ -1,6 +1,6 @@
 ---
 - name: update software
-  hosts: docker_swarm, iron_man
+  hosts: all
   become_method: sudo
   become_user: root
   become: yes

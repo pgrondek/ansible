@@ -1,6 +1,6 @@
 ---
 - name: update date
-  hosts: docker_swarm
+  hosts: all
   become_method: sudo
   become_user: root
   become: yes

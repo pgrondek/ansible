@@ -1,6 +1,6 @@
 ---
 - name: reboot nodes
-  hosts: docker_swarm
+  hosts: docker_cluster
   become_method: sudo
   become_user: root
   become: yes
@@ -10,7 +10,7 @@
     - name: drain docker swarm
       shell:
         cmd: |
-          docker node update {{ docker_node }} --availability drain
+          docker node update {{ ansible_hostname }} --availability drain
           sleep 30
 
     - name: reboot
@@ -32,5 +32,5 @@
     - name: drain docker swarm
       shell:
         cmd: |
-          docker node update {{ docker_node }} --availability active
+          docker node update {{ ansible_hostname }} --availability active
           sleep 30
