@@ -1,0 +1,23 @@
+---
+- name: install and configure heartbeat
+  hosts: docker_swarm
+  become_method: sudo
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: install heartbeat
+      apt:
+        update_cache: yes
+        pkg:
+          - heartbeat
+
+    - name: copy configuration
+      copy:
+        src: etc/ha.d/ha.cf
+        dest: /etc/ha.d/ha.cf
+
+    - name: copy resources
+      copy:
+        src: etc/ha.d/haresources
+        dest: /etc/ha.d/haresources

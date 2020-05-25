@@ -1,0 +1,8 @@
+node node-01
+ucast eth0 192.168.50.101
+
+node node-02
+ucast eth0 192.168.50.102
+
+node node-03
+ucast eth0 192.168.50.103
