@@ -1,26 +1,26 @@
 ---
-- name: install needed tools
-  become: yes
-  apt:
-    update_cache: yes
-    pkg:
-      - python-pip
-      - python-dev
-      - python-setuptools
-      - python-virtualenv
-      - git
-      - libyaml-dev
-      - build-essential
+- become: yes
+  block:
+  - name: install needed tools
+    apt:
+      update_cache: yes
+      pkg:
+        - python-pip
+        - python-dev
+        - python-setuptools
+        - python-virtualenv
+        - git
+        - libyaml-dev
+        - build-essential
 
-- name: install octoprint software
-  become: yes
-  become_user: octoprint
-  shell:
-    chdir: /home/octoprint
-    cmd: |
-      virtualenv –system-site-packages .
-      source bin/activate
-      pip install pip --upgrade
-      pip install octoprint
-  args:
-    executable: /bin/bash
+  - name: install octoprint software
+    become_user: octoprint
+    shell:
+      chdir: /home/octoprint
+      cmd: |
+        virtualenv –system-site-packages .
+        source bin/activate
+        pip install pip --upgrade
+        pip install octoprint
+    args:
+      executable: /bin/bash
