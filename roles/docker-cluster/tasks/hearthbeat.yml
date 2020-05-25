@@ -1,11 +1,6 @@
 ---
-- name: install and configure heartbeat
-  hosts: docker_swarm
-  become_method: sudo
-  become_user: root
-  become: yes
-
-  tasks:
+- become: yes
+  block:
     - name: install heartbeat
       apt:
         update_cache: yes

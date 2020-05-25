@@ -6,3 +6,7 @@
 - hosts: prusa.lan
   roles:
     - octoprint
+
+- hosts: docker_cluster
+  roles:
+    - docker-cluster

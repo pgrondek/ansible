@@ -1,0 +1,25 @@
+---
+- become: yes
+  block:
+  - name: install nfs-client
+    apt:
+      update_cache: yes
+      pkg:
+        - nfs-common
+
+  - name: update rpc config
+    copy:
+      src: lib/systemd/system/rpc-statd.service
+      dest: /lib/systemd/system/rpc-statd.service
+
+  - name: stop and disable rpc
+    systemd:
+      name: rpc-statd
+      state: stopped
+      enabled: false
+
+  - name: start and enable rpc
+    systemd:
+      name: rpc-statd
+      state: started
+      enabled: true

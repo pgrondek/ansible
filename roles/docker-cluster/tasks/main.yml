@@ -1,0 +1,11 @@
+---
+- import_tasks: install-docker-ce.yml
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "18.04"
+
+- import_tasks: install-docker-io.yml
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version != "18.04"
+
+- import_tasks: nfs-client.yml
+
+- import_tasks: hearthbeat.yml
+
