@@ -1,0 +1,20 @@
+---
+- name: copy systemd service config
+  become: yes
+  copy:
+    src: octoprint.service
+    dest: /lib/systemd/system/octoprint.service
+
+- name: enable systemd service
+  become: yes
+  systemd:
+    name: octoprint
+    enabled: yes
+    state: started
+
+- name: enable octoprint to restart itself
+  become: yes
+  copy:
+    src: sudoers.conf
+    dest: /etc/sudoers.d/octoprint
+    mode: 0440

@@ -1,0 +1,10 @@
+---
+- name: create octoprint account
+  become: yes
+  user:
+    name: octoprint
+    comment: Octoprint account
+    groups: tty,dialout
+    system: yes
+    password_lock: yes
+    home: /home/octoprint

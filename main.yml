@@ -2,3 +2,7 @@
 - hosts: server
   roles:
     - ssh
+
+- hosts: prusa.lan
+  roles:
+    - octoprint
