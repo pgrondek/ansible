@@ -24,3 +24,16 @@
         pip install octoprint
     args:
       executable: /bin/bash
+
+  - name: install plugins
+    become_user: octoprint
+    pip:
+      virtualenv: /home/octoprint
+      name:
+        - https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip
+        - https://github.com/paukstelis/OctoPrint-Cancelobject/archive/master.zip
+        - https://github.com/OllisGit/OctoPrint-DeleteAfterPrint/releases/latest/download/master.zip
+        - https://github.com/malnvenshorn/OctoPrint-FilamentManager/archive/master.zip
+        - https://github.com/juniorRubyist/OctoPrint-OctoFlat/archive/master.zip
+        - https://github.com/kanocz/octopi_eta_override/archive/master.zip
+        - https://github.com/Renaud11232/OctoPrint-Resource-Monitor/archive/master.zip
