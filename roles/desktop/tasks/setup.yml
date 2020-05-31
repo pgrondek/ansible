@@ -1,0 +1,9 @@
+---
+- block:
+  become: yes
+  - name: install git and make
+    apt:
+      update_cache: yes
+      pkg:
+        - git
+        - make
