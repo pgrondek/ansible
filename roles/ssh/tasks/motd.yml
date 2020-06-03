@@ -7,14 +7,26 @@
         path: /etc/update-motd.d/10-help-text
         mode: '0644'
 
-    - name: install screenfetch
+    - name: install neofetch
       apt:
         update_cache: yes
         pkg:
-          - screenfetch
+          - neofetch
 
     - name: add screenfetch to motd
       copy:
-        src: etc/update-motd.d/05-screenfetch
-        dest: /etc/update-motd.d/05-screenfetch
+        src: etc/update-motd.d/05-neofetch
+        dest: /etc/update-motd.d/05-neofetch
         mode: '0755'
+
+    - name: uninstall screenfetch
+      apt:
+        update_cache: yes
+        state: absent
+        pkg:
+          - screenfetch
+
+    - name: remove screenfetch from motd
+      file:
+        path: /etc/update-motd.d/05-screenfetch
+        state: absent
