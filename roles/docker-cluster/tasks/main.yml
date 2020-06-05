@@ -9,3 +9,5 @@
 
 - import_tasks: hearthbeat.yml
 
+- import_tasks: hostfile.yml
+
