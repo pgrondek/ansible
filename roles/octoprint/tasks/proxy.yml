@@ -1,0 +1,19 @@
+---
+- become: yes
+  block:
+    - name: install needed tools
+      apt:
+        update_cache: yes
+        pkg:
+          - haproxy
+
+    - name: copy ha config
+      copy:
+        src: etc/haproxy/haproxy.cfg
+        dest: /etc/haproxy/haproxy.cfg
+
+    - name: restart haproxy
+      systemd:
+        state: restarted
+        daemon_reload: yes
+        name: haproxy
