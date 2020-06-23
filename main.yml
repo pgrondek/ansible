@@ -16,3 +16,7 @@
     - docker-cluster
     - ubuntu
 
+- hosts: router.lan
+  roles:
+    - router
+
