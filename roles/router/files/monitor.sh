@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env vbash
 
 WAN=eth0
 HOSTS=(
@@ -17,7 +17,7 @@ PING="/bin/ping -c 1 -W ${PING_TIMEOUT} -w ${PING_TIMEOUT}"
 RESET_MODEM_SCRIPT="/config/scripts/tplink_smartplug.py"
 
 DEBUG=true
-DISABLE_SOFT_RESTART=true
+DISABLE_SOFT_RESTART=false
 
 function debug() {
     if [[ ${DEBUG} ]]; then
@@ -44,17 +44,35 @@ function soft_restart() {
 
     debug "Renewing DHCP IP lease on ${WAN}"
     renew dhcp interface ${WAN}
+
+    debug "Waiting for ip lease from dhcp (${DHCP_WAIT_TIME}s)"
+    sleep ${DHCP_WAIT_TIME}
 }
 
 function hard_restart() {
+    debug "Releasing DHCP IP lease on ${WAN}"
+    release dhcp interface ${WAN}
+
+    debug "Disabling ${WAN} interface"
+    set interfaces ethernet ${WAN} disable
+
     debug "Turning off router outlet"
     ${RESET_MODEM_SCRIPT} -t ${OUTLET_IP} -c off >> /dev/null 2>&1
 
     debug "Waiting ${SOFT_WAIT_TIME}"
     sleep ${SOFT_WAIT_TIME}
 
-    debug "Turning off router outlet"
+    debug "Turning on router outlet"
     ${RESET_MODEM_SCRIPT} -t ${OUTLET_IP} -c on >> /dev/null 2>&1
+
+    debug "Waiting for modem to bootup ${MODEM_RESET_WAIT_TIME}"
+    sleep ${MODEM_RESET_WAIT_TIME}
+
+    debug "Enabling ${WAN} interface"
+    set interfaces ethernet ${WAN} enable
+
+    debug "Renewing DHCP IP lease on ${WAN}"
+    renew dhcp interface ${WAN}
 }
 
 function ping() {
@@ -73,14 +91,9 @@ function main() {
     ping
     soft_restart
 
-    debug "Waiting for ip lease from dhcp (${DHCP_WAIT_TIME}s)"
-    sleep ${DHCP_WAIT_TIME}
-
     ping
     hard_restart
 
-    debug "Waiting for modem to bootup (${DHCP_WAIT_TIME}s)"
-    sleep ${MODEM_RESET_WAIT_TIME}
     ping
     soft_restart
 }
