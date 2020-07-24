@@ -25,6 +25,16 @@ function debug() {
     fi
 }
 
+function interfaceDown() {
+    interface=$1
+    ip link set dev ${interface} down
+}
+
+function interfaceUp() {
+    interface=$1
+    ip link set dev ${interface} down
+}
+
 function soft_restart() {
     if [[ ${DISABLE_SOFT_RESTART} ]] ; then
         return
@@ -34,13 +44,13 @@ function soft_restart() {
     release dhcp interface ${WAN}
 
     debug "Disabling ${WAN} interface"
-    set interfaces ethernet ${WAN} disable
+    interfaceDown ${WAN}
 
     debug "Waiting ${SOFT_WAIT_TIME}"
     sleep ${SOFT_WAIT_TIME}
 
     debug "Enabling ${WAN} interface"
-    set interfaces ethernet ${WAN} enable
+    interfaceUp ${WAN}
 
     debug "Renewing DHCP IP lease on ${WAN}"
     renew dhcp interface ${WAN}
@@ -54,7 +64,7 @@ function hard_restart() {
     release dhcp interface ${WAN}
 
     debug "Disabling ${WAN} interface"
-    set interfaces ethernet ${WAN} disable
+    interfaceDown ${WAN}
 
     debug "Turning off router outlet"
     ${RESET_MODEM_SCRIPT} -t ${OUTLET_IP} -c off >> /dev/null 2>&1
@@ -69,7 +79,7 @@ function hard_restart() {
     sleep ${MODEM_RESET_WAIT_TIME}
 
     debug "Enabling ${WAN} interface"
-    set interfaces ethernet ${WAN} enable
+    interfaceUp ${WAN}
 
     debug "Renewing DHCP IP lease on ${WAN}"
     renew dhcp interface ${WAN}
