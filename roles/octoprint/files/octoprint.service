@@ -6,7 +6,7 @@ After=network.target
 User=octoprint
 Group=octoprint
 Restart=always
-ExecStart=/home/octoprint/bin/octoprint serve
+ExecStart=/home/octoprint/.local/bin/octoprint
 Type=simple
 
 [Install]
