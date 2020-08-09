@@ -19,12 +19,29 @@
     shell:
       chdir: /home/octoprint
       cmd: |
-        virtualenv –system-site-packages .
+        virtualenv --system-site-packages .
         source bin/activate
         pip install pip --upgrade
         pip install octoprint
     args:
       executable: /bin/bash
+
+  - name: enable system wide packages
+    file:
+      path: /home/octoprint/lib/python2.7/no-global-site-packages.txt
+      state: absent
+
+  - name: Create symbolic link for PIL package
+    file:
+      src: /usr/lib/python2.7/dist-packages/PIL
+      dest: /home/octoprint/lib/python2.7/site-packages/PIL
+      state: link
+
+  - name: Create symbolic link for pillow package
+    file:
+      src: /usr/lib/python2.7/dist-packages/Pillow-5.1.0.egg-info
+      dest: /home/octoprint/lib/python2.7/site-packages/Pillow-5.1.0.egg-info
+      state: link
 
   - name: install plugins
     become_user: octoprint
@@ -37,7 +54,8 @@
         - https://github.com/kanocz/octopi_eta_override/archive/master.zip
         - https://github.com/malnvenshorn/OctoPrint-FilamentManager/archive/master.zip
         - https://github.com/OllisGit/OctoPrint-DeleteAfterPrint/releases/latest/download/master.zip
-        - https://github.com/OllisGit/OctoPrint-PrintJobHistory/releases/latest/download/master.zip
+#        - https://github.com/OllisGit/OctoPrint-PrintJobHistory/releases/latest/download/master.zip
         - https://github.com/paukstelis/OctoPrint-Cancelobject/archive/master.zip
         - https://github.com/Renaud11232/OctoPrint-Resource-Monitor/archive/master.zip
         - https://github.com/agrif/OctoPrint-InfluxDB/archive/master.zip
+
