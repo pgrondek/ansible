@@ -17,11 +17,12 @@ PING="/bin/ping -c 1 -W ${PING_TIMEOUT} -w ${PING_TIMEOUT}"
 RESET_MODEM_SCRIPT="/config/scripts/tplink_smartplug.py"
 
 DEBUG=true
+DEBUG_FILE=/var/log/cron-monitor.log
 DISABLE_SOFT_RESTART=false
 
 function debug() {
     if [[ ${DEBUG} ]]; then
-        echo $@
+        echo $@ > ${DEBUG_FILE}
     fi
 }
 
@@ -32,7 +33,7 @@ function interfaceDown() {
 
 function interfaceUp() {
     interface=$1
-    ip link set dev ${interface} down
+    ip link set dev ${interface} up
 }
 
 function soft_restart() {

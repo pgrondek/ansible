@@ -1,0 +1,6 @@
+---
+- hosts: prusa.lan
+  roles:
+#    - ssh
+    - octoprint
+#    - ubuntu
