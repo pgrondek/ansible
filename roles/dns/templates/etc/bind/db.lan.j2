@@ -1,0 +1,17 @@
+$TTL    86400
+$ORIGIN lan.
+@       IN      SOA     lan. dns.lan. (
+        2020072901;
+        604800;
+        86400;
+        2419200;
+        86400;
+)
+
+@   IN  NS  dns.lan.
+
+DNS     IN  A   {{ network }}.100
+
+{% for host in hosts %}
+{{ host.name }}     IN      A       {{ network }}.{{ host.ip }}
+{% endfor %}

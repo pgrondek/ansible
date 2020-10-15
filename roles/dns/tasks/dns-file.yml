@@ -1,0 +1,8 @@
+---
+- name: Create db.lan
+#  become: yes
+  template:
+    src: etc/bind/db.lan.j2
+    dest: /tmp/etc/bind/db.lan
+  vars:
+

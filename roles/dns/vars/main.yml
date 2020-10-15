@@ -1,0 +1,118 @@
+---
+lan:
+  network: 192.168.50
+  hosts:
+    - name: router
+      ip: 2
+    - name: bender
+      ip: 3
+    - name: openhab
+      ip: 5
+    - name: access-point
+      ip: 6
+    - name: iron-man
+      ip: 7
+    - name: prusa
+      ip: 8
+    - name: farnsworth
+      ip: 21
+    - name: groot
+      ip: 22
+    - name: xbox
+      ip: 31
+    - name: wii
+      ip: 32
+    - name: ps3
+      ip: 33
+    - name: ps4
+      ip: 34
+    - name: vita
+      ip: 35
+    - name: switch
+      ip: 36
+    - name: ipad
+      ip: 46
+    - name: android-sgs9
+      ip: 47
+    - name: tv
+      ip: 50
+    - name: soundbar
+      ip: 51
+    - name: shield
+      ip: 52
+    - name: printer
+      ip: 64
+    - name: kindle
+      ip: 70
+    - name: node-01
+      ip: 101
+    - name: node-02
+      ip: 102
+    - name: node-03
+      ip: 103
+iot:
+  network: 192.168.60
+  hosts:
+    - name: smartthings
+      ip: 2
+      mac: d0:52:a8:a3:65:95
+    - name: hue-light
+      ip: 3
+      mac: 00:17:88:27:38:8a
+    - name: zhimi-airpurifier-m1_miio61353463
+      ip: 5
+      mac: 34:ce:00:a4:f6:75
+    - name: zhimi-airpurifier-mb3_mibt952D
+      ip: 6
+      mac: 50:ec:50:85:95:2d
+    - name: roborock
+      ip: 7
+      mac: 50:ec:50:0a:c3:94
+    - name: soundbar
+      ip: 8
+      mac: 10:ce:a9:0f:25:08
+    - name: google-home-bathroom
+      ip: 10
+      mac: f4:f5:d8:dd:10:d0
+    - name: google-home
+      ip: 11
+      mac: 20:df:b9:a0:d2:cd
+    - name: google-home
+      ip: 12
+      mac: 20:df:b9:9b:a2:3b
+    - name: gree-ac
+      ip: 13
+      mac: f4:91:1e:47:e3:bd
+    - name: router-power-outlet
+      ip: 14
+      mac: cc:32:e5:69:7a:da
+    - name: camera-livingroom
+      ip: 20
+      mac: 78:11:dc:7b:4d:04
+    - name: camera-kitchen
+      ip: 21
+      mac: 34:ce:00:b2:62:3c
+    - name: openhab
+      ip: 100
+      mac: b8:27:eb:96:f3:3f
+guest:
+  network: 192.168.70
+equipment:
+  network: 192.168.80
+  hosts:
+    - name: nvidia-shield
+      ip: 10
+      mac: 00:04:4b:cd:a6:5b
+    - name: nvidia-shield-wifi
+      ip: 11
+      mac: 00:04:4b:cd:a6:59
+    - name: ps4
+      ip: 12
+      mac: 00:d9:d1:76:7b:c5
+    - name: nintendo-switch-wifi
+      ip: 15
+      mac: 64:b5:c6:6f:ff:a8
+    - name: printer
+      ip: 17
+      mac: 38:9d:92:d0:6d:8e
+
