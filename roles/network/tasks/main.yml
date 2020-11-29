@@ -1,3 +1,4 @@
 ---
 - import_tasks: dns-file.yml
 
+- import_tasks: dhcp-file.yml

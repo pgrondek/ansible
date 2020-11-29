@@ -1,0 +1,20 @@
+ddns-update-style none;
+authorative;
+
+subnet {{ network.address }} netmask {{ network.mask }} {
+    option domain-name-servers  {{ network.dns }};
+    option domain-name          "{{ network.network_name }}";
+    option routers              {{ network.gateway }};
+    default-lease-time          86400;
+    max-lease-time              86400;
+{% if network.range_start is defined %}
+    range                       {{ network.range_start }} {{ network.range_end }};
+{% endif %}
+
+{% for host in network.hosts %}
+    host {{ host.name }} { hardware ethernet {{ host.mac }}; fixed-address {{ network.network_prefix }}.{{ host.ip }}; }
+{% if host.mac2 is defined %}
+    host {{ host.name }}_2 { hardware ethernet {{ host.mac2 }}; fixed-address {{ network.network_prefix }}.{{ host.ip }}; }
+{% endif %}
+{% endfor %}
+}

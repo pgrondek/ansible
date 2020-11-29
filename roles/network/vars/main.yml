@@ -1,55 +1,52 @@
 ---
 lan:
-  network: 192.168.50
+  network_prefix: 192.168.50
+  network_name: lan
+  address: 192.168.50.0
+  mask: 255.255.255.0
+  gateway: 192.168.50.2
+  dns: 192.168.50.100
+  range_start: 192.168.50.200
+  range_end: 192.168.50.250
   hosts:
     - name: router
       ip: 2
+      mac: 2c:b0:5d:4a:72:62
     - name: bender
       ip: 3
-    - name: openhab
+      mac: e0:3f:49:6f:03:c2
+    - name: prusa-new
+      ip: 4
+      mac: b8:27:eb:96:f3:3f
+      mac2: b8:27:eb:c3:a6:6a
+    - name: home-assistant
       ip: 5
-    - name: access-point
-      ip: 6
+      mac: dc:a6:32:8b:7b:ab
+      mac2: 6a:1b:c8:63:58:7a
     - name: iron-man
       ip: 7
+      mac: dc:a6:32:03:6d:fa
     - name: prusa
       ip: 8
+      mac: b8:27:eb:ff:2a:86
     - name: farnsworth
       ip: 21
-    - name: groot
-      ip: 22
-    - name: xbox
-      ip: 31
-    - name: wii
-      ip: 32
-    - name: ps3
-      ip: 33
-    - name: ps4
-      ip: 34
-    - name: vita
-      ip: 35
-    - name: switch
-      ip: 36
+      mac: e0:3f:49:83:e8:dd
     - name: ipad
       ip: 46
+      mac: b8:63:4d:b6:4c:bc
     - name: android-sgs9
       ip: 47
-    - name: tv
-      ip: 50
-    - name: soundbar
-      ip: 51
-    - name: shield
-      ip: 52
-    - name: printer
-      ip: 64
-    - name: kindle
-      ip: 70
+      mac: 24:18:1d:bc:fe:4f
     - name: node-01
       ip: 101
+      mac: dc:a6:32:03:6d:fa
     - name: node-02
       ip: 102
+      mac: dc:a6:32:3c:0f:ff
     - name: node-03
       ip: 103
+      mac: dc:a6:32:3c:1a:ec
 iot:
   network: 192.168.60
   hosts:
@@ -86,6 +83,12 @@ iot:
     - name: router-power-outlet
       ip: 14
       mac: cc:32:e5:69:7a:da
+    - name: tv
+      ip: 15
+      mac: c0:48:e6:1f:ca:a7
+    - name: soundbar
+      ip: 16
+      mac: cc:6e:a4:2a:06:4e
     - name: camera-livingroom
       ip: 20
       mac: 78:11:dc:7b:4d:04
@@ -102,17 +105,40 @@ equipment:
   hosts:
     - name: nvidia-shield
       ip: 10
+#      ip: 11
       mac: 00:04:4b:cd:a6:5b
-    - name: nvidia-shield-wifi
+      mac2: 00:04:4b:cd:a6:59
+    - name: kindle
       ip: 11
-      mac: 00:04:4b:cd:a6:59
-    - name: ps4
-      ip: 12
-      mac: 00:d9:d1:76:7b:c5
-    - name: nintendo-switch-wifi
-      ip: 15
-      mac: 64:b5:c6:6f:ff:a8
+      mac: 68:54:FD:BB:06:61
     - name: printer
       ip: 17
       mac: 38:9d:92:d0:6d:8e
+    - name: wii
+      ip: 21
+      mac: 00:1e:35:e7:b3:a0
+    - name: xbox
+      ip: 22
+      mac: 7c:ed:8d:0f:c6:63
+    - name: ps3
+      ip: 23
+      mac: 00:1d:0d:c2:07:b0
+    - name: ps-vita
+      ip: 34
+      mac: 00:d9:d1:4f:8f:91
+    - name: ps4
+      ip: 25
+      mac: 00:d9:d1:76:7b:c5
+    - name: nintendo-switch
+      ip: 26
+      mac: 64:b5:c6:6f:ff:a8
 
+management:
+  network: 192.168.1
+  hosts:
+    - name: router
+      ip: 1
+    - name: switch
+      ip: 2
+    - name: access-point
+      ip: 3

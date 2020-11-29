@@ -1,0 +1,14 @@
+---
+- name: create build directory
+  file:
+    path: build/dns
+    state: directory
+
+- name: Create db.lan
+#  become: yes
+  template:
+    src: etc/bind/db.lan.j2
+    dest: build/dns/db.lan
+  vars:
+    network: "{{ lan }}"
+    serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"

@@ -1,0 +1,12 @@
+---
+- name: create build directory
+  file:
+    path: build/dhcp
+    state: directory
+
+- name: Create dhcpd.conf
+  template:
+    src: etc/dhcpd/dhcpd.conf.j2
+    dest: build/dhcp/dhcpd.conf
+  vars:
+    network: "{{ lan }}"
