@@ -4,12 +4,7 @@
   template:
     src: usr/local/sbin/check-docker.j2
     dest: /usr/local/sbin/check-docker
-
-- name: Remove file (delete file)
-  become: yes
-  file:
-    path: /usr/local/sbin/check-docker.j2
-    state: absent
+    mode: '0755'
 
 - name: create cron
   become: yes
