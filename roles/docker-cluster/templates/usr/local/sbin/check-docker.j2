@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+docker node inspect {{ ansible_hostname }} --format "{{ '{{' }} .Status.State {{ '}}' }}" | grep -q 'ready'
+
+if [ $? == 1 ]; then
+  echo "Docker is down restarting"
+  service docker restart
+else
+  echo "Docker is ok"
+fi
