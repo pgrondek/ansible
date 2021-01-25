@@ -1,0 +1,25 @@
+---
+- become: yes
+  block:
+    - name: install i2c-tools
+      become: yes
+      apt:
+        update_cache: yes
+        pkg:
+          - i2c-tools
+
+    - name: enable automatic module load
+      copy:
+        src: etc/modules-load.d/rtc-ds1307.conf
+        dest: /etc/modules-load.d/rtc-ds1307.conf
+
+    - name: add systemd service
+      copy:
+        src: etc/systemd/system/rtc-i2c.service
+        dest: /etc/systemd/system/rtc-i2c.service
+
+    - name: enable systemd service
+      systemd:
+        name: rtc-i2c.service
+        enabled: yes
+        state: started

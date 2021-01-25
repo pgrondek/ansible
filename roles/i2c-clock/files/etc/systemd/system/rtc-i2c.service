@@ -1,0 +1,20 @@
+[Unit]
+ConditionCapability=CAP_SYS_TIME
+ConditionVirtualization=!container
+DefaultDependencies=no
+Wants=dev-rtc_i2c.device
+After=dev-rtc_i2c.device
+Before=systemd-timesyncd.service ntpd.service chrony.service
+
+[Service]
+Type=oneshot
+CapabilityBoundingSet=CAP_SYS_TIME
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+DeviceAllow=/dev/rtc_i2c rw
+DevicePolicy=closed
+ExecStart=/usr/bin/echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device && /sbin/hwclock --s
+
+[Install]
+WantedBy=time-sync.target

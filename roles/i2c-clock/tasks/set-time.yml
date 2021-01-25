@@ -1,0 +1,16 @@
+---
+- become: yes
+  block:
+    - name: load hwclock
+      shell:
+        cmd: |
+          modprobe rtc-ds1307
+          echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+    - name: update time
+      shell:
+        cmd: |
+          hwclock -w
+    - name: read time
+      shell:
+        cmd: |
+          hwclock -r

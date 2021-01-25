@@ -1,0 +1,8 @@
+---
+- name: uninstall fakehw
+  become: yes
+  apt:
+    update_cache: yes
+    state: absent
+    pkg:
+      - fake-hwclock
