@@ -4,17 +4,21 @@
 #    - ssh
 #    - ubuntu
 #
-#- hosts: prusa.lan
-#  roles:
-#    - ssh
-#    - octoprint
-#    - ubuntu
-
-- hosts: docker_cluster
+- hosts: prusa
   roles:
     - ssh
-    - docker-cluster
+    - octoprint
     - ubuntu
+
+#- hosts: docker_cluster
+#  roles:
+#    - ssh
+#    - docker-cluster
+#    - ubuntu
+#
+#- hosts: raspberry
+#  roles:
+#    - i2c-clock
 
 #- hosts: router.lan
 #  roles:

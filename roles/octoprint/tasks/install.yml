@@ -5,43 +5,28 @@
     apt:
       update_cache: yes
       pkg:
-        - python-pip
-        - python-dev
-        - python-setuptools
-        - python-virtualenv
-        - python-pillow
+        - python3-pip
+        - python3-all-dev
+        - python3-setuptools
+        - python3-virtualenv
         - git
         - libyaml-dev
         - build-essential
+        - acl
+        - libjpeg8-dev
 
   - name: install octoprint software
+    become: true
     become_user: octoprint
     shell:
       chdir: /home/octoprint
       cmd: |
         virtualenv --system-site-packages .
         source bin/activate
-        pip install pip --upgrade
-        pip install octoprint
+        pip3 install pip --upgrade
+        pip3 install octoprint
     args:
       executable: /bin/bash
-
-  - name: enable system wide packages
-    file:
-      path: /home/octoprint/lib/python2.7/no-global-site-packages.txt
-      state: absent
-
-  - name: Create symbolic link for PIL package
-    file:
-      src: /usr/lib/python2.7/dist-packages/PIL
-      dest: /home/octoprint/lib/python2.7/site-packages/PIL
-      state: link
-
-  - name: Create symbolic link for pillow package
-    file:
-      src: /usr/lib/python2.7/dist-packages/Pillow-5.1.0.egg-info
-      dest: /home/octoprint/lib/python2.7/site-packages/Pillow-5.1.0.egg-info
-      state: link
 
   - name: install plugins
     become_user: octoprint
@@ -58,6 +43,4 @@
         - https://github.com/paukstelis/OctoPrint-Cancelobject/archive/master.zip
         - https://github.com/Renaud11232/OctoPrint-Resource-Monitor/archive/master.zip
         - https://github.com/agrif/OctoPrint-InfluxDB/archive/master.zip
-        - https://github.com/juergenpabel/OctoPrint-Procastinator/archive/master.zip
-        - https://github.com/ManuelMcLure/OctoPrint-WiFiStatus/archive/master.zip
 
