@@ -1,6 +1,7 @@
 ---
 lan:
   network_prefix: 192.168.50
+  network_reverse: 50.168.192
   network_name: lan
   address: 192.168.50.0
   mask: 255.255.255.0
@@ -15,29 +16,36 @@ lan:
     - name: bender
       ip: 3
       mac: e0:3f:49:6f:03:c2
-    - name: prusa-new
-      ip: 4
-      mac: b8:27:eb:96:f3:3f
-      mac2: b8:27:eb:c3:a6:6a
     - name: home-assistant
       ip: 5
       mac: dc:a6:32:8b:7b:ab
       mac2: 6a:1b:c8:63:58:7a
+    - name: prusa
+      ip: 6
+      mac: b8:27:eb:96:f3:3f
+      mac2: b8:27:eb:c3:a6:6a
+#    - name: rpi3
     - name: iron-man
       ip: 7
       mac: dc:a6:32:03:6d:fa
-    - name: prusa
+    - name: rpi3a
       ip: 8
       mac: b8:27:eb:ff:2a:86
-    - name: farnsworth
+    - name: kvm-bender
+      ip: 11
+      mac: dc:a6:32:f6:63:c1
+    - name: hulk
       ip: 21
+      mac: 24:4b:fe:05:e2:8b
+    - name: farnsworth
+      ip: 22
       mac: e0:3f:49:83:e8:dd
-    - name: ipad
-      ip: 46
-      mac: b8:63:4d:b6:4c:bc
     - name: android-sgs9
-      ip: 47
+      ip: 41
       mac: 24:18:1d:bc:fe:4f
+    - name: ipad
+      ip: 42
+      mac: b8:63:4d:b6:4c:bc
     - name: node-01
       ip: 101
       mac: dc:a6:32:03:6d:fa

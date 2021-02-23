@@ -8,10 +8,8 @@ $ORIGIN {{ network.network_name }}.
         86400;
 )
 
-@   IN  NS  dns.{{ network.network_name }}.
-
-DNS     IN  A   {{ network.network_prefix }}.100
+{{ network.network_reverse }}   IN  A   dns.{{ network.network_name }}
 
 {% for host in network.hosts %}
-{{ host.name }}     IN      A       {{ network.network_prefix }}.{{ host.ip }}
+{{ host.ip }}   IN      PTR     {{ host.name }}
 {% endfor %}

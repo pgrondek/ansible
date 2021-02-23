@@ -12,3 +12,12 @@
   vars:
     network: "{{ lan }}"
     serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"
+
+- name: Create db.lan
+#  become: yes
+  template:
+    src: etc/bind/db.reverse.j2
+    dest: build/dns/db.{{ lan.network_reverse }}
+  vars:
+    network: "{{ lan }}"
+    serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"
