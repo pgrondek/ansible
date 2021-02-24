@@ -12,3 +12,5 @@
 - import_tasks: hostfile.yml
 
 - import_tasks: docker-watcher.yml
+
+- import_tasks: ssh-external.yml

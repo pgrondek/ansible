@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+SERVICE=sshd-external
+
+case "$1" in
+  start)
+    systemctl start "${SERVICE}"
+    ;;
+  stop)
+    systemctl stop "${SERVICE}"
+    ;;
+  reload)
+    systemctl reload "${SERVICE}"
+    ;;
+  force-reload)
+    systemctl force-reload "${SERVICE}"
+    ;;
+  restart)
+    systemctl restart "${SERVICE}"
+    ;;
+  status)
+    systemctl status "${SERVICE}"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/ssh {start|stop|reload|force-reload|restart|status}" || true
+    exit 1
+    ;;
+esac
