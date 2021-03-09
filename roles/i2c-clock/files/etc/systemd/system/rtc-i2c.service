@@ -14,7 +14,8 @@ ProtectSystem=full
 ProtectHome=yes
 DeviceAllow=/dev/rtc_i2c rw
 DevicePolicy=closed
-ExecStart=/usr/bin/echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device && /sbin/hwclock --s
+ExecStartPre=/usr/bin/echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+ExecStart=/sbin/hwclock -s
 
 [Install]
 WantedBy=time-sync.target
