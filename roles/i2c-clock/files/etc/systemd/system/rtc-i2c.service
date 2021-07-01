@@ -4,7 +4,8 @@ ConditionVirtualization=!container
 DefaultDependencies=no
 Wants=dev-rtc_i2c.device
 After=dev-rtc_i2c.device
-Before=systemd-timesyncd.service ntpd.service chrony.service
+Before=sysinit.target
+Conflicts=shutdown.target
 
 [Service]
 Type=oneshot
@@ -12,10 +13,10 @@ CapabilityBoundingSet=CAP_SYS_TIME
 PrivateTmp=yes
 ProtectSystem=full
 ProtectHome=yes
-DeviceAllow=/dev/rtc_i2c rw
+DeviceAllow=/dev/rtc rw
 DevicePolicy=closed
-ExecStartPre=/usr/bin/echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
-ExecStart=/sbin/hwclock -s
+ExecStart=/bin/sh -c "/usr/bin/echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device"
+ExecStartPost=/usr/bin/logger --tag rtc-i2c 'System clock set from i2c hardware clock'
 
 [Install]
-WantedBy=time-sync.target
+WantedBy=sysinit.target

@@ -1,5 +1,11 @@
 ---
+- name: Check if rtc is loaded
+  stat:
+    path: /dev/rtc
+  register: rtc_file
+
 - become: yes
+  when: rtc_file.stat.exists == False
   block:
     - name: load hwclock
       shell:

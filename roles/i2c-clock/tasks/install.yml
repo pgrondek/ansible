@@ -7,6 +7,12 @@
         update_cache: yes
         pkg:
           - i2c-tools
+          - libraspberrypi-bin
+
+    - name: enable i2c-rtc dtoverlay
+      shell:
+        cmd: |
+          dtoverlay i2c-rtc
 
     - name: enable automatic module load
       copy:
@@ -18,8 +24,13 @@
         src: etc/systemd/system/rtc-i2c.service
         dest: /etc/systemd/system/rtc-i2c.service
 
+    - name: disable systemd service
+      systemd:
+        daemon_reload: yes
+        name: rtc-i2c.service
+        enabled: no
+
     - name: enable systemd service
       systemd:
         name: rtc-i2c.service
         enabled: yes
-        state: started
