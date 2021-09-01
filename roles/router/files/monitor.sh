@@ -1,4 +1,4 @@
-#!/usr/bin/env vbash
+#!/usr/bin/env bash
 
 WAN=eth0
 HOSTS=(
@@ -20,6 +20,13 @@ DEBUG=true
 DEBUG_FILE=/var/log/cron-monitor.log
 DISABLE_SOFT_RESTART=false
 
+if [ 'vyattacfg' != "$(id -ng)" ]; then
+ exec sg vyattacfg -c "$0 $@"
+ exit 0
+fi
+
+cw=/opt/vyatta/sbin/vyatta-cfg-cmd-wrapper
+
 function debug() {
     if [[ ${DEBUG} ]]; then
         echo $@ > ${DEBUG_FILE}
@@ -28,12 +35,12 @@ function debug() {
 
 function interfaceDown() {
     interface=$1
-    ip link set dev ${interface} down
+    $cw ip link set dev ${interface} down
 }
 
 function interfaceUp() {
     interface=$1
-    ip link set dev ${interface} up
+    $cw ip link set dev ${interface} up
 }
 
 function soft_restart() {
@@ -42,10 +49,10 @@ function soft_restart() {
     fi
 
     debug "Releasing DHCP IP lease on ${WAN}"
-    release dhcp interface ${WAN}
+    $cw release dhcp interface ${WAN}
 
     debug "Disabling ${WAN} interface"
-    interfaceDown ${WAN}
+    $cw interfaceDown ${WAN}
 
     debug "Waiting ${SOFT_WAIT_TIME}"
     sleep ${SOFT_WAIT_TIME}
@@ -54,7 +61,7 @@ function soft_restart() {
     interfaceUp ${WAN}
 
     debug "Renewing DHCP IP lease on ${WAN}"
-    renew dhcp interface ${WAN}
+    $cw renew dhcp interface ${WAN}
 
     debug "Waiting for ip lease from dhcp (${DHCP_WAIT_TIME}s)"
     sleep ${DHCP_WAIT_TIME}
@@ -62,7 +69,7 @@ function soft_restart() {
 
 function hard_restart() {
     debug "Releasing DHCP IP lease on ${WAN}"
-    release dhcp interface ${WAN}
+    $cw release dhcp interface ${WAN}
 
     debug "Disabling ${WAN} interface"
     interfaceDown ${WAN}
@@ -83,7 +90,7 @@ function hard_restart() {
     interfaceUp ${WAN}
 
     debug "Renewing DHCP IP lease on ${WAN}"
-    renew dhcp interface ${WAN}
+    $cw renew dhcp interface ${WAN}
 }
 
 function ping() {
