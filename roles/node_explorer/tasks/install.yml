@@ -28,5 +28,5 @@
 - name: change chmod
   become: yes
   file:
-    path: /usr/local/bin/node_exporter
+    path: /usr/local/sbin/node_exporter
     mode: '0755'
