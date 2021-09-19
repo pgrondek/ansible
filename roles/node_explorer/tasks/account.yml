@@ -1,0 +1,10 @@
+---
+- name: create prometheus account
+  become: yes
+  user:
+    name: prometheus
+    comment: Octoprint account
+    system: yes
+    password_lock: yes
+    home: /nonexistent
+    create_home: no

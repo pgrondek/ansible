@@ -4,14 +4,15 @@
 #    - ssh
 #    - ubuntu
 #
-- hosts: prusa
-  roles:
-    - ssh
-    - octoprint
-    - ubuntu
-
-#- hosts: docker_cluster
+#- hosts: prusa
 #  roles:
+#    - ssh
+#    - octoprint
+#    - ubuntu
+
+- hosts: docker_cluster
+  roles:
+    - node_explorer
 #    - ssh
 #    - docker-cluster
 #    - ubuntu
@@ -24,3 +25,6 @@
 #  roles:
 #    - router
 
+#- hosts: iron-man
+#  roles:
+#    - ssh

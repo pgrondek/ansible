@@ -1,0 +1,32 @@
+---
+- name: Create temp dir
+  file:
+    path: /tmp/node_exporter
+    state: directory
+
+- name: Download node-explorer
+  unarchive:
+    src: https://github.com/prometheus/node_exporter/releases/download/v{{version}}/node_exporter-{{version}}.linux-arm64.tar.gz
+    dest: /tmp/node_exporter
+    remote_src: yes
+    mode: 0755
+
+- name: get folder name
+  shell: ls /tmp/node_exporter
+  register: dir_name
+
+- name: Move to /usr/local/sbin
+  become: yes
+  command: cp -ra /tmp/node_exporter/{{ dir_name.stdout }}/node_exporter /usr/local/sbin/node_exporter
+
+- name: Remove temp directory
+  become: yes
+  file:
+    path: /tmp/node_exporter
+    state: absent
+
+- name: change chmod
+  become: yes
+  file:
+    path: /usr/local/bin/node_exporter
+    mode: '0755'

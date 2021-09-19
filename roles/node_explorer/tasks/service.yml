@@ -1,0 +1,13 @@
+---
+- become: yes
+  block:
+    - name: copy systemd service config
+      copy:
+        src: lib/systemd/system/node_explorer.service
+        dest: /lib/systemd/system/node_explorer.service
+
+    - name: enable systemd service
+      systemd:
+        name: node_explorer
+        enabled: yes
+        state: started
