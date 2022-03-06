@@ -46,7 +46,7 @@ lan:
       mac: b8:63:4d:b6:4c:bc
     - name: iphone
       ip: 43
-      mac:
+      mac: b2:d9:6f:d9:31:e1
     - name: apple-watch
       ip: 44
       mac: b2:b0:04:86:fc:90
@@ -107,13 +107,16 @@ iot:
     - name: nintendo-switch
       ip: 19
       mac: 64:b5:c6:6f:ff:a8
-    - name: Snonos-LivingRoom
+    - name: printer
+      ip: 20
+      mac: 38:9d:92:d0:6d:8e
+    - name: Sonos-LivingRoom
       ip: 30
       mac: 34:7e:5c:83:6f:c6
-    - name: Snonos-Bedroom
+    - name: Sonos-Bedroom
       ip: 31
       mac: 78:28:ca:84:d9:10
-    - name: Snonos-Bathroom
+    - name: Sonos-Bathroom
       ip: 32
       mac: 5c:aa:fd:b9:4b:22
     - name: home-assistant
@@ -124,30 +127,6 @@ iot:
       mac: c8:2b:96:64:6a:37
 guest:
   network: 192.168.70
-equipment:
-  network: 192.168.80
-  hosts:
-    - name: kindle
-      ip: 11
-      mac: 68:54:FD:BB:06:61
-    - name: printer
-      ip: 17
-      mac: 38:9d:92:d0:6d:8e
-    - name: wii
-      ip: 21
-      mac: 00:1e:35:e7:b3:a0
-    - name: xbox
-      ip: 22
-      mac: 7c:ed:8d:0f:c6:63
-    - name: ps3
-      ip: 23
-      mac: 00:1d:0d:c2:07:b0
-    - name: ps-vita
-      ip: 34
-      mac: 00:d9:d1:4f:8f:91
-    - name: ps4
-      ip: 25
-      mac: 00:d9:d1:76:7b:c5
 
 management:
   network: 192.168.1
@@ -159,11 +138,14 @@ management:
     - name: access-point
       ip: 3
 cctv:
-  network: 192.168.10
+  network: 192.168.110
   hosts:
-    - name: camera-livingroom
-      ip: 20
-      mac: 78:11:dc:7b:4d:04
-    - name: camera-kitchen
-      ip: 21
+    - name: camera-3dprinter
+      ip: 11
       mac: 34:ce:00:b2:62:3c
+    - name: camera-kitchen
+      ip: 12
+      mac: 78:11:dc:7b:4d:04
+    - name: camera-hallway
+      ip: 13
+      mac: 78:11:DC:7B:4C:87
