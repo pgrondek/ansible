@@ -35,3 +35,15 @@
       name: "{{ansible_user_id}}"
       groups: docker
       append: yes
+
+  - name: start and enable docker
+    systemd:
+      name: docker
+      state: started
+      enabled: true
+
+  - name: add current user to docker group
+    user:
+      name: "{{ ansible_user_id }}"
+      append: yes
+      groups: docker

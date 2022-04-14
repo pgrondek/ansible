@@ -1,7 +1,20 @@
 ---
-- name: install needed packages
-  become: yes
-  apt:
-    update_cache: yes
-    pkg:
-      - docker.io
+- become: yes
+  block:
+  - name: install needed packages
+    apt:
+      update_cache: yes
+      pkg:
+        - docker.io
+
+  - name: start and enable docker
+    systemd:
+      name: docker
+      state: started
+      enabled: true
+
+  - name: add current user to docker group
+    user:
+      name: "{{ ansible_user_id }}"
+      append: yes
+      groups: docker
