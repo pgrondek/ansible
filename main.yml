@@ -12,9 +12,9 @@
 
 - hosts: docker_cluster
   roles:
-    - node_explorer
+#    - node_explorer
 #    - ssh
-#    - docker-cluster
+    - docker-cluster
 #    - ubuntu
 #
 #- hosts: raspberry

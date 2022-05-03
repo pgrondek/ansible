@@ -14,3 +14,5 @@
 - import_tasks: docker-watcher.yml
 
 - import_tasks: ssh-external.yml
+
+- import_tasks: docker-cron.yml

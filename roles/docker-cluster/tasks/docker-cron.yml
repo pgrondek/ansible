@@ -1,0 +1,17 @@
+- name: Clean docker system
+  become: yes
+  ansible.builtin.cron:
+    user: root
+    name: "clean docker system"
+    minute: "0"
+    hour: "3"
+    job: "/usr/bin/docker system prune -f"
+
+- name: Clean docker image cache
+  become: yes
+  ansible.builtin.cron:
+    user: root
+    name: "clean docker system"
+    minute: "0"
+    hour: "3"
+    job: "/usr/bin/docker image prune -a -f"
