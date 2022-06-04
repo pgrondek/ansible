@@ -19,3 +19,7 @@
 - hosts: router.lan
   roles:
     - router
+
+- hosts: remote_server
+  roles:
+    - docker

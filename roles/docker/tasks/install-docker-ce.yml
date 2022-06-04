@@ -1,0 +1,49 @@
+---
+- become: yes
+  block:
+  - name: install needed packages
+    apt:
+      update_cache: yes
+      pkg:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+
+  - name: add docker gpg key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: add docker repo
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+      state: present
+      filename: docker
+
+  - name: install docker
+    apt:
+      update_cache: yes
+      pkg:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+
+  - name: add current user to docker group
+    user:
+      name: "{{ansible_user_id}}"
+      groups: docker
+      append: yes
+
+  - name: start and enable docker
+    systemd:
+      name: docker
+      state: started
+      enabled: true
+
+  - name: add current user to docker group
+    user:
+      name: "{{ ansible_user_id }}"
+      append: yes
+      groups: docker
