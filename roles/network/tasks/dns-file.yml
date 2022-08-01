@@ -4,7 +4,7 @@
     path: build/dns
     state: directory
 
-- name: Create db.lan
+- name: Create db lan
 #  become: yes
   template:
     src: etc/bind/db.lan.j2
@@ -13,11 +13,29 @@
     network: "{{ lan }}"
     serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"
 
-- name: Create db.lan
+- name: Create reverse db lan
 #  become: yes
   template:
     src: etc/bind/db.reverse.j2
     dest: build/dns/db.{{ lan.network_reverse }}
   vars:
     network: "{{ lan }}"
+    serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"
+
+- name: Create db iot
+  #  become: yes
+  template:
+    src: etc/bind/db.lan.j2
+    dest: build/dns/db.iot
+  vars:
+    network: "{{ iot }}"
+    serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"
+
+- name: Create reverse db iot
+  #  become: yes
+  template:
+    src: etc/bind/db.reverse.j2
+    dest: build/dns/db.{{ iot.network_reverse }}
+  vars:
+    network: "{{ iot }}"
     serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}02"

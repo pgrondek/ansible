@@ -10,7 +10,7 @@ $ORIGIN {{ network.network_name }}.
 
 @   IN  NS  dns.{{ network.network_name }}.
 
-DNS     IN  A   {{ network.network_prefix }}.100
+DNS     IN  A   {{ network.dns }}
 
 {% for host in network.hosts %}
 {{ host.name }}     IN      A       {{ network.network_prefix }}.{{ host.ip }}

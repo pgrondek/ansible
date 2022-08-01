@@ -4,6 +4,7 @@ authorative;
 subnet {{ network.address }} netmask {{ network.mask }} {
     option domain-name-servers  {{ network.dns }};
     option domain-name          "{{ network.network_name }}";
+    option domain-search        "lan", "iot";
     option routers              {{ network.gateway }};
     default-lease-time          86400;
     max-lease-time              86400;

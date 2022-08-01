@@ -20,23 +20,17 @@ lan:
     - name: prusa
       ip: 6
       mac: b8:27:eb:c3:a6:6a
-#    - name: rpi3
-    - name: iron-man
-      ip: 7
-      mac: dc:a6:32:03:6d:fa
-    - name: rpi3a
-      ip: 8
-      mac: b8:27:eb:ff:2a:86
 
     - name: hulk
       ip: 21
       mac: 24:4b:fe:05:e2:8b
     - name: banner
       ip: 22
-      mac: 52:54:00:49:04:51
-    - name: laptop
-      ip: 29
-      mac: 08:d4:0c:cc:ff:1f
+      mac: '52:54:00:49:04:51'
+    - name: hawkeye
+      ip: 23
+      mac: b4:8c:9d:5e:a1:8b
+      mac2: a0:ce:c8:77:c3:13
 
     - name: android-sgs9
       ip: 41
@@ -46,10 +40,13 @@ lan:
       mac: b8:63:4d:b6:4c:bc
     - name: iphone
       ip: 43
-      mac: b2:d9:6f:d9:31:e1
+      mac: 0c:19:f8:10:c2:b3
     - name: apple-watch
       ip: 44
-      mac: b2:b0:04:86:fc:90
+      mac: 9c:28:b3:24:bc:9c
+    - name: ipad-pro
+      ip: 45
+      mac: 38:88:a4:6e:95:a3
 
     - name: node-01
       ip: 101
@@ -63,9 +60,15 @@ lan:
     - name: node-04
       ip: 104
       mac: dc:a6:32:8b:7b:ab
+    - name: node-05
+      ip: 105
+      mac: 08:d4:0c:cc:ff:1f
 
 iot:
-  network: 192.168.60
+  network_prefix: 192.168.60
+  network_reverse: 60.168.192
+  network_name: iot
+  dns: 192.168.50.100
   hosts:
     - name: hue-light
       ip: 3
@@ -73,16 +76,16 @@ iot:
     - name: harmony-hub
       ip: 4
       mac: c8:db:26:06:7e:f9
-    - name: zhimi-airpurifier-m1_miio61353463
+    - name: airpurifier-bedroom
       ip: 5
       mac: 34:ce:00:a4:f6:75
-    - name: zhimi-airpurifier-mb3_mibt952D
+    - name: airpurifier-livingroom
       ip: 6
       mac: 50:ec:50:85:95:2d
     - name: roborock
       ip: 7
       mac: 50:ec:50:0a:c3:94
-    - name: zhimi-humidifier-ca4_mibt1D0C
+    - name: humidifier
       ip: 8
       mac: 54:48:e6:5d:1d:0c
     - name: yeelight-lightbar
@@ -100,6 +103,9 @@ iot:
     - name: bedroom-tv
       ip: 16
       mac: d8:a3:5c:7d:50:0a
+    - name: miibox
+      ip: 17
+      mac: 00:e0:4c:68:09:35
     - name: nvidia-shield
       ip: 18
       mac: 00:04:4b:cd:a6:5b
@@ -107,9 +113,14 @@ iot:
     - name: nintendo-switch
       ip: 19
       mac: 64:b5:c6:6f:ff:a8
+      mac2: 00:0e:c6:c7:55:6f
     - name: printer
       ip: 20
       mac: 38:9d:92:d0:6d:8e
+    - name: xbox-series-s
+      ip: 21
+      mac: a8:8c:3e:b0:aa:7a
+
     - name: Sonos-LivingRoom
       ip: 30
       mac: 34:7e:5c:83:6f:c6
@@ -119,12 +130,19 @@ iot:
     - name: Sonos-Bathroom
       ip: 32
       mac: 5c:aa:fd:b9:4b:22
+    - name: Sonos-Bedroom2
+      ip: 33
+      mac: 78:28:ca:85:51:dc
+
     - name: home-assistant
       ip: 100
       mac: dc:a6:32:f6:63:c1
-    - name: home-assistant-power
-      ip: 110
+    - name: usb-switch-1
+      ip: 111
       mac: c8:2b:96:64:6a:37
+    - name: usb-switch-2
+      ip: 112
+      mac: c8:2b:96:64:68:a3
 guest:
   network: 192.168.70
 
