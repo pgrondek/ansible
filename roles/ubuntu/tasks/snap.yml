@@ -1,0 +1,19 @@
+---
+- become: yes
+  block:
+    - name: Get the list of services
+      service_facts:
+
+    - name: stop snapd
+      systemd:
+        name: snapd
+        state: stopped
+      when: "'snapd.service' in services"
+
+    - name: uninstall snapd
+      apt:
+        update_cache: yes
+        state: absent
+        purge: yes
+        pkg:
+          - snapd
