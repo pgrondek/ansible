@@ -3,7 +3,7 @@
   become: yes
   user:
     name: prometheus
-    comment: Octoprint account
+    comment: Prometheus account
     system: yes
     password_lock: yes
     home: /nonexistent
