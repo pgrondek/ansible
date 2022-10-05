@@ -31,6 +31,9 @@ lan:
       ip: 23
       mac: b4:8c:9d:5e:a1:8b
       mac2: a0:ce:c8:77:c3:13
+    - name: pepper
+      ip: 24
+      mac: 52:54:00:c0:07:46
 
     - name: android-sgs9
       ip: 41
