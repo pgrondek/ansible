@@ -35,6 +35,10 @@ lan:
       ip: 24
       mac: 52:54:00:c0:07:46
 
+    - name: steamdeck
+      ip: 30
+      mac: 2c:3b:70:aa:4a:7d
+
     - name: android-sgs9
       ip: 41
       mac: fe:bd:3d:7b:3a:58
