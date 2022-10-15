@@ -14,6 +14,7 @@
         - build-essential
         - acl
         - libjpeg8-dev
+        - libffi-dev
 
   - name: install octoprint software
     become: true
