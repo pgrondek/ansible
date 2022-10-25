@@ -38,11 +38,12 @@
         - https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails/archive/master.zip
         - https://github.com/juniorRubyist/OctoPrint-OctoFlat/archive/master.zip
         - https://github.com/kanocz/octopi_eta_override/archive/master.zip
-        - https://github.com/OllisGit/OctoPrint-SpoolManager/releases/latest/download/master.zip
+#        - https://github.com/OllisGit/OctoPrint-SpoolManager/releases/latest/download/master.zip
         - https://github.com/OllisGit/OctoPrint-DeleteAfterPrint/releases/latest/download/master.zip
 #        - https://github.com/OllisGit/OctoPrint-PrintJobHistory/releases/latest/download/master.zip
         - https://github.com/paukstelis/OctoPrint-Cancelobject/archive/master.zip
-        - https://github.com/Renaud11232/OctoPrint-Resource-Monitor/archive/master.zip
+        - https://github.com/jukebox42/Octoprint-PrusaMMU/releases/latest/download/Octoprint-PrusaMmu.zip
+#        - https://github.com/Renaud11232/OctoPrint-Resource-Monitor/archive/master.zip
         - https://github.com/agrif/OctoPrint-InfluxDB/archive/master.zip
         - https://github.com/BillyBlaze/OctoPrint-TouchUI/archive/master.zip
         - https://github.com/smartin015/continuousprint/archive/refs/heads/master.zip
