@@ -4,7 +4,7 @@
   user:
     name: octoprint
     comment: Octoprint account
-    groups: tty,dialout
+    groups: tty,dialout,video
     system: yes
     password_lock: yes
     home: /home/octoprint
