@@ -1,26 +1,31 @@
 ---
-#- hosts: prusa
-#  roles:
-#    - ssh
-#    - octoprint
-#    - ubuntu
+- hosts: prusa
+  roles:
+    - ssh
+    - octoprint
+    - ubuntu
 
-#- hosts: docker_cluster
-#  roles:
-#    - node_explorer
-#    - ssh
-#    - docker-cluster
-#    - ubuntu
-#
-#- hosts: raspberry
-#  roles:
-#    - i2c-clock
-#
-#- hosts: router.lan
-#  roles:
-#    - router
-#
-#- hosts: remote_server
-#  roles:
-#    - docker
-#
+- hosts: docker_cluster
+  roles:
+    - node_explorer
+    - ssh
+    - docker-cluster
+    - ubuntu
+
+- hosts: raspberry
+  roles:
+    - i2c-clock
+
+- hosts: router.lan
+  roles:
+    - router
+
+- hosts: remote_server
+  roles:
+    - docker
+
+- hosts: uatu.lan
+  roles:
+    - ssh
+    - ubuntu
+    - docker

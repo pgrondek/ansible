@@ -34,18 +34,28 @@
     pip:
       virtualenv: /home/octoprint
       name:
+#       Bed Visualizer
         - https://github.com/jneilliii/OctoPrint-BedLevelVisualizer/archive/master.zip
-        - https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails/archive/master.zip
-        - https://github.com/juniorRubyist/OctoPrint-OctoFlat/archive/master.zip
-        - https://github.com/kanocz/octopi_eta_override/archive/master.zip
-#        - https://github.com/OllisGit/OctoPrint-SpoolManager/releases/latest/download/master.zip
-        - https://github.com/OllisGit/OctoPrint-DeleteAfterPrint/releases/latest/download/master.zip
-#        - https://github.com/OllisGit/OctoPrint-PrintJobHistory/releases/latest/download/master.zip
+#       Cancel Objects
         - https://github.com/paukstelis/OctoPrint-Cancelobject/archive/master.zip
-        - https://github.com/jukebox42/Octoprint-PrusaMMU/releases/latest/download/Octoprint-PrusaMmu.zip
-#        - https://github.com/Renaud11232/OctoPrint-Resource-Monitor/archive/master.zip
-        - https://github.com/agrif/OctoPrint-InfluxDB/archive/master.zip
-        - https://github.com/BillyBlaze/OctoPrint-TouchUI/archive/master.zip
+#       Continuous Print
         - https://github.com/smartin015/continuousprint/archive/refs/heads/master.zip
+#       DeleteAfterPrint Plugin
+        - https://github.com/OllisGit/OctoPrint-DeleteAfterPrint/releases/latest/download/master.zip
+#       Firmware Updater
         - https://github.com/OctoPrint/OctoPrint-FirmwareUpdater/archive/refs/heads/master.zip
+#       HomeAssistant Discovery
+        - https://github.com/cmroche/OctoPrint-HomeAssistant/archive/master.zip
+#       MQTT
+        - https://github.com/OctoPrint/OctoPrint-MQTT/archive/master.zip
+#       OctoFlat Theme
+        - https://github.com/juniorRubyist/OctoPrint-OctoFlat/archive/master.zip
+#       Octolapse
         - https://github.com/FormerLurker/Octolapse/archive/master.zip
+#       Prusa ETA override Plugin
+        - https://github.com/kanocz/octopi_eta_override/archive/master.zip
+#       Prusa MMU
+        - https://github.com/jukebox42/Octoprint-PrusaMMU/releases/latest/download/Octoprint-PrusaMmu.zip
+#       Slicer Thumbnails
+        - https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails/archive/master.zip
+
