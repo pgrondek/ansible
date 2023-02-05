@@ -1,0 +1,12 @@
+---
+- become: yes
+  block:
+    - name: install needed packages
+      apt:
+        update_cache: yes
+        pkg:
+          - duplicity
+          - python3-requests-oauthlib
+          - sendemail
+          - libio-socket-ssl-perl
+          - libnet-ssleay-perl

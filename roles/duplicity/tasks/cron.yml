@@ -1,0 +1,18 @@
+---
+- name: copy configuration
+  become: yes
+  copy:
+    src: backup.sh
+    dest: /home/duplicity/backup.sh
+    mode: '0750'
+    owner: duplicity
+    group: duplicity
+
+- name: Create cron job for autobackup
+  become: yes
+  ansible.builtin.cron:
+    user: duplicity
+    name: "Backup"
+    minute: "0"
+    hour: "3"
+    job: "/home/duplicity/backup.sh"

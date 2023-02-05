@@ -1,0 +1,9 @@
+---
+- name: create duplicity account
+  become: yes
+  user:
+    name: duplicity
+    comment: Duplicity account
+    system: yes
+    password_lock: yes
+    home: /home/duplicity
