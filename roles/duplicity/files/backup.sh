@@ -10,8 +10,8 @@ DESTINATION="onedrive://duplicity/nas"
 LOG="/home/duplicity/backup.log"
 
 rm $LOG
-duplicity remove-older-than $MAX_TIME $DESTINATION >> $LOG
-duplicity --full-if-older-than $FULL_BACKUP_EVERY $SOURCE $DESTINATION >> $LOG
+PASSPHRASE="$PASSPHRASE" duplicity remove-older-than $MAX_TIME $DESTINATION >> $LOG
+PASSPHRASE="$PASSPHRASE" duplicity --full-if-older-than $FULL_BACKUP_EVERY $SOURCE $DESTINATION >> $LOG
 
 sendemail \
   -f "$EMAIL_SENDER" \
