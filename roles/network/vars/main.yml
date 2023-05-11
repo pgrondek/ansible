@@ -127,6 +127,18 @@ iot:
     - name: xbox-series-s
       ip: 21
       mac: a8:8c:3e:b0:aa:7a
+    - name: oculus
+      ip: 22
+      mac: b4:17:a8:37:ae:dc
+    - name: elgato-keylight-mini
+      ip: 23
+      mac: 3c:6a:9d:20:42:08
+    - name: prusa-mini
+      ip: 24
+      mac: 10:9c:70:08:ee:e5
+    - name: presence-sensor
+      ip: 25
+      mac: cc:b5:d1:85:4f:4f
 
     - name: Sonos-LivingRoom
       ip: 30
@@ -150,6 +162,15 @@ iot:
     - name: usb-switch-2
       ip: 112
       mac: c8:2b:96:64:68:a3
+    - name: usb-switch-3
+      ip: 113
+      mac: c8:2b:96:64:67:89
+    - name: pc-pwr
+      ip: 114
+      mac: e8:db:84:49:c1:b6
+    - name: bt-proxy-1
+      ip: 115
+      mac: 24:62:ab:ff:18:a8
 guest:
   network: 192.168.70
 
@@ -160,8 +181,14 @@ management:
       ip: 1
     - name: switch
       ip: 2
-    - name: access-point
+    - name: switch-desktop
       ip: 3
+    - name: switch-bedroom
+      ip: 4
+    - name: switch-rack
+      ip: 5
+    - name: access-point
+      ip: 50
 cctv:
   network: 192.168.110
   hosts:
