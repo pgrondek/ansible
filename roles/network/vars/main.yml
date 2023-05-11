@@ -38,6 +38,7 @@ lan:
     - name: steamdeck
       ip: 30
       mac: 2c:3b:70:aa:4a:7d
+      mac2: 10:82:86:2A:E7:0C
 
     - name: android-sgs9
       ip: 41
