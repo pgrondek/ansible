@@ -24,9 +24,13 @@
 #  roles:
 #    - docker
 
-- hosts: uatu.lan
-  roles:
+#- hosts: uatu.lan
+#  roles:
 #    - ssh
 #    - ubuntu
 #    - docker
-    - duplicity
+#    - duplicity
+
+- hosts: node-01.lan
+  roles:
+    - network

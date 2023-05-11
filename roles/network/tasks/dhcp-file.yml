@@ -1,12 +1,17 @@
 ---
-- name: create build directory
+- name: create directory
   file:
-    path: build/dhcp
+    path: /srv/dhcp/config
     state: directory
 
 - name: Create dhcpd.conf
+  become: yes
   template:
     src: etc/dhcpd/dhcpd.conf.j2
-    dest: build/dhcp/dhcpd.conf
+    dest: /srv/dhcp/config/dhcpd.conf
   vars:
     network: "{{ lan }}"
+
+- name: restart container
+  shell:
+    cmd: docker service update --force --detach dhcp

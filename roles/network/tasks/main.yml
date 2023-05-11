@@ -1,4 +1,6 @@
 ---
 - import_tasks: dns-file.yml
+  become: yes
 
 - import_tasks: dhcp-file.yml
+  become: yes
