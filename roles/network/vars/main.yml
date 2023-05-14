@@ -65,13 +65,15 @@ lan:
     - name: node-03
       ip: 103
       mac: dc:a6:32:3c:1a:ec
-    - name: node-04
+    - name: pi-kvm
       ip: 104
       mac: dc:a6:32:8b:7b:ab
     - name: node-05
       ip: 105
       mac: 08:d4:0c:cc:ff:1f
-
+    - name: uatu
+      ip: 106
+      mac: b8:27:eb:19:f8:0d
 iot:
   network_prefix: 192.168.60
   network_reverse: 60.168.192

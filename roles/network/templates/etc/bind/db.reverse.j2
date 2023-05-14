@@ -1,15 +1,15 @@
 $TTL    86400
-$ORIGIN {{ network.network_name }}.
-@       IN      SOA     {{ network.network_name }}. dns.{{ network.network_name }}. (
-        {{ serial }};
-        604800;
-        86400;
-        2419200;
-        86400;
+$ORIGIN {{ network.network_reverse }}.IN-ADDR.ARPA.
+@       IN      SOA   {{ network.network_name }}.  dns.{{ network.network_name }}. (
+        {{ serial }} ; serial number
+        604800       ; refresh
+        86400        ; update retry
+        2419200      ; expiry
+        86400        ; Negative caching TTL
 )
 
-{{ network.network_reverse }}   IN  A   dns.{{ network.network_name }}
+@   IN  NS  dns.{{ network.network_name }}.
 
 {% for host in network.hosts %}
-{{ host.ip }}   IN      PTR     {{ host.name }}
+{{ host.ip }}   IN      PTR     {{ host.name }}.{{ network.network_name }}.
 {% endfor %}
