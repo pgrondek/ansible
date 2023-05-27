@@ -58,16 +58,16 @@ lan:
 
     - name: node-01
       ip: 101
-      mac: dc:a6:32:03:6d:fa
+      mac: dc:a6:32:8b:7b:ab
     - name: node-02
       ip: 102
       mac: dc:a6:32:3c:0f:ff
     - name: node-03
       ip: 103
       mac: dc:a6:32:3c:1a:ec
-    - name: pi-kvm
+    - name: node-04
       ip: 104
-      mac: dc:a6:32:8b:7b:ab
+      mac: d6:29:c5:7e:61:3e
     - name: node-05
       ip: 105
       mac: 08:d4:0c:cc:ff:1f
