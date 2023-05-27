@@ -7,6 +7,8 @@
 
 - import_tasks: nfs-client.yml
 
+- import_tasks: gluster.yml
+
 - import_tasks: hearthbeat.yml
 
 - import_tasks: hostfile.yml

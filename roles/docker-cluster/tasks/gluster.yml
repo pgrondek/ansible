@@ -1,0 +1,15 @@
+---
+- become: yes
+  block:
+  - name: install glusterfs-client
+    apt:
+      update_cache: yes
+      pkg:
+        - glusterfs-client
+
+  - name: add mount for glusterfs data
+    mount:
+      path: /srv
+      src: 192.168.50.100:/gv0
+      fstype: glusterfs
+      state: present
