@@ -1,5 +1,6 @@
 ---
 - name: install needed tools
+  become: true
   apt:
     update_cache: yes
     pkg:
