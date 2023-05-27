@@ -4,3 +4,5 @@
 - import_tasks: timezone.yml
 
 - import_tasks: snap.yml
+
+- import_tasks: packages.yml

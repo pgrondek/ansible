@@ -1,0 +1,8 @@
+---
+- name: install needed tools
+  apt:
+    update_cache: yes
+    pkg:
+      - bash-completion
+      - vim
+      - aptitude
