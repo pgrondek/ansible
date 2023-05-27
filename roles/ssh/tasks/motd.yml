@@ -1,8 +1,15 @@
 ---
 - become: yes
   block:
+    - name: check if help in motd exists
+      stat:
+        path: /etc/update-motd.d/10-help-text
+      register: stat_result
+
     - name: disable help in ubuntu
-      when: ansible_distribution == "Ubuntu"
+      when:
+        - ansible_distribution == "Ubuntu"
+        - stat_result.stat.exists
       file:
         path: /etc/update-motd.d/10-help-text
         mode: '0644'
