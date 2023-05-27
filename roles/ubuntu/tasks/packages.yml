@@ -7,3 +7,5 @@
       - bash-completion
       - vim
       - aptitude
+      - git
+      - make
