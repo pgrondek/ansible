@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+docker node ls
+if [ $? == 1 ]; then
+    echo "This is not a docker swarm node exiting"
+    exit 1
+fi
+
 docker node inspect {{ ansible_hostname }} --format "{{ '{{' }} .Status.State {{ '}}' }}" | grep -q 'ready'
 
 if [ $? == 1 ]; then
