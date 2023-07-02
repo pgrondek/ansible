@@ -5,8 +5,17 @@
     state: directory
 
 - name: Download node-explorer
+  when: ansible_architecture == "aarch64"
   unarchive:
     src: https://github.com/prometheus/node_exporter/releases/download/v{{version}}/node_exporter-{{version}}.linux-arm64.tar.gz
+    dest: /tmp/node_exporter
+    remote_src: yes
+    mode: 0755
+
+- name: Download node-explorer
+  when: ansible_architecture == "armv7l"
+  unarchive:
+    src: https://github.com/prometheus/node_exporter/releases/download/v{{version}}/node_exporter-{{version}}.linux-armv7.tar.gz
     dest: /tmp/node_exporter
     remote_src: yes
     mode: 0755
