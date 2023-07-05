@@ -35,3 +35,7 @@
 - hosts: node-01.lan
   roles:
     - network
+
+- hosts: laptop.lan
+  roles:
+    - node_explorer
