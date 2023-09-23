@@ -1,0 +1,7 @@
+- name: install modules for docker networks
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "22.04"
+  become: yes
+  apt:
+    update_cache: yes
+    pkg:
+      - linux-modules-extra-raspi
