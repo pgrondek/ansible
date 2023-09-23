@@ -31,9 +31,6 @@ lan:
       ip: 23
       mac: b4:8c:9d:5e:a1:8b
       mac2: a0:ce:c8:77:c3:13
-    - name: pepper
-      ip: 24
-      mac: 52:54:00:c0:07:46
 
     - name: steamdeck
       ip: 30
@@ -74,6 +71,10 @@ lan:
     - name: uatu
       ip: 106
       mac: b8:27:eb:19:f8:0d
+    - name: pikvm
+      ip: 107
+      mac: d8:3a:dd:3f:07:02
+
 iot:
   network_prefix: 192.168.60
   network_reverse: 60.168.192
