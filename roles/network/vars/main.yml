@@ -67,7 +67,7 @@ lan:
       mac: d6:29:c5:7e:61:3e
     - name: node-05
       ip: 105
-      mac: 08:d4:0c:cc:ff:1f
+      mac: d8:3a:dd:31:d7:dc
     - name: uatu
       ip: 106
       mac: b8:27:eb:19:f8:0d
