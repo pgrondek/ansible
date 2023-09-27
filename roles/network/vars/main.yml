@@ -31,6 +31,10 @@ lan:
       ip: 23
       mac: b4:8c:9d:5e:a1:8b
       mac2: a0:ce:c8:77:c3:13
+    - name: thor
+      ip: 24
+      mac: 5c:1b:f4:e4:52:11
+      mac2: 5c:1b:f4:e2:df:18
 
     - name: steamdeck
       ip: 30
