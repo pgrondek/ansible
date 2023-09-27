@@ -175,6 +175,10 @@ iot:
     - name: bt-proxy-1
       ip: 115
       mac: 24:62:ab:ff:18:a8
+    - name: bt-proxy-bathroom
+      ip: 116
+      mac: e0:5a:1b:d1:5a:74
+
 guest:
   network: 192.168.70
 
