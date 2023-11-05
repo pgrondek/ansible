@@ -147,6 +147,9 @@ iot:
     - name: presence-sensor
       ip: 25
       mac: cc:b5:d1:85:4f:4f
+    - name: prusa-mk39
+      ip: 26
+      mac: 10:9c:70:08:ee:e5
 
     - name: Sonos-LivingRoom
       ip: 30
