@@ -26,6 +26,7 @@
 
 - hosts: uatu.lan
   roles:
+    - db-backup
     - ssh
     - ubuntu
     - docker

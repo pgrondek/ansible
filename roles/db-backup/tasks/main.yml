@@ -1,0 +1,6 @@
+---
+- import_tasks: account.yml
+
+- import_tasks: copy-scripts.yml
+
+- import_tasks: install.yml

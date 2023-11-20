@@ -1,0 +1,23 @@
+- name: copy mysql backup
+  become: yes
+  copy:
+    src: "mysql-backup.sh"
+    dest: "{{ account.home }}/mysql-backup.sh"
+    owner: "{{ account.name }}"
+    mode: '0755'
+
+- name: copy postgres backup
+  become: yes
+  copy:
+    src: "postgres-backup.sh"
+    dest: "{{ account.home }}/postgres-backup.sh"
+    owner: "{{ account.name }}"
+    mode: '0755'
+
+- name: copy postgres backup
+  become: yes
+  copy:
+    src: "postgres-backup2.sh"
+    dest: "{{ account.home }}/postgres-backup2.sh"
+    owner: "{{ account.name }}"
+    mode: '0755'

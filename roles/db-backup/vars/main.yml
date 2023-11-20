@@ -1,0 +1,5 @@
+---
+account:
+  name: db-backup
+  comment: Database Backup account
+  home: /home/db-backup

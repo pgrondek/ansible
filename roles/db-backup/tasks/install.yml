@@ -1,0 +1,36 @@
+---
+- become: yes
+  block:
+  - name: install needed tools
+    apt:
+      update_cache: yes
+      pkg:
+        - postgresql-client-common
+        - mysql-client-8.0
+
+- name: Add cron task for backup mysql
+  become: yes
+  ansible.builtin.cron:
+    user: "{{ account.name }}"
+    name: "Backup mysql"
+    minute: "0"
+    hour: "4"
+    job: "{{ account.home }}/mysql-backup.sh"
+
+- name: Add cron task for backup postgres
+  become: yes
+  ansible.builtin.cron:
+    user: "{{ account.name }}"
+    name: "Backup postgres"
+    minute: "10"
+    hour: "4"
+    job: "{{ account.home }}/postgres-backup.sh"
+
+- name: Add cron task for backup postgres2
+  become: yes
+  ansible.builtin.cron:
+    user: "{{ account.name }}"
+    name: "Backup postgres 2"
+    minute: "20"
+    hour: "4"
+    job: "{{ account.home }}/postgres-backup2.sh"

@@ -1,0 +1,9 @@
+---
+- name: create db-backup account
+  become: yes
+  user:
+    name: "{{ account.name }}"
+    comment: "{{ account.comment }}"
+    system: yes
+    password_lock: yes
+    home: "{{ account.home }}"
