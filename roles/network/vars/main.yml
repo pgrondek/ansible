@@ -150,6 +150,9 @@ iot:
     - name: prusa-mk39
       ip: 26
       mac: 10:9c:70:08:ee:e5
+    - name: twinkly-1
+      ip: 27
+      mac: 8c:4b:14:a9:bc:4c
 
     - name: Sonos-LivingRoom
       ip: 30
@@ -163,6 +166,10 @@ iot:
     - name: Sonos-Bedroom2
       ip: 33
       mac: 78:28:ca:85:51:dc
+
+    - name: wled-office-monitor
+      ip: 40
+      mac: ec:fa:bc:27:e6:4e
 
     - name: home-assistant
       ip: 100
