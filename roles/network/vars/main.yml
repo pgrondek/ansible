@@ -170,6 +170,12 @@ iot:
     - name: wled-office-monitor
       ip: 40
       mac: ec:fa:bc:27:e6:4e
+    - name: wled-lightbar
+      ip: 41
+      mac: 5c:cf:7f:23:5e:8e
+    - name: wled-star
+      ip: 42
+      mac: 5c:cf:7f:23:5e:8e
 
     - name: home-assistant
       ip: 100
