@@ -135,7 +135,7 @@ iot:
     - name: xbox-series-s
       ip: 21
       mac: a8:8c:3e:b0:aa:7a
-    - name: oculus
+    - name: oculus-quest-2
       ip: 22
       mac: b4:17:a8:37:ae:dc
     - name: elgato-keylight-mini
@@ -153,6 +153,9 @@ iot:
     - name: twinkly-1
       ip: 27
       mac: 8c:4b:14:a9:bc:4c
+    - name: oculus-quest-3
+      ip: 28
+      mac: a6:b0:36:17:4f:00
 
     - name: Sonos-LivingRoom
       ip: 30
