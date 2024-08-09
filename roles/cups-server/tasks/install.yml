@@ -1,0 +1,15 @@
+---
+- become: yes
+  block:
+  - name: install needed packages
+    apt:
+      update_cache: yes
+      pkg:
+        - cups
+        - printer-driver-dymo
+
+  - name: add current user to lpadmin group
+    user:
+      name: "{{ ansible_user_id }}"
+      append: yes
+      groups: lpadmin
