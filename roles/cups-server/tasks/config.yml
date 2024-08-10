@@ -1,0 +1,12 @@
+- name: copy mysql backup
+  become: yes
+  copy:
+    src: "cupsd.conf"
+    dest: "/etc/cups/cupsd.conf"
+    owner: root
+    mode: '0600'
+
+- name: restart cups
+  systemd:
+    name: cups
+    state: restarted
