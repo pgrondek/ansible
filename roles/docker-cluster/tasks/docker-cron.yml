@@ -1,3 +1,10 @@
+- name: install cron
+  become: true
+  apt:
+    update_cache: yes
+    pkg:
+      - cron
+
 - name: Clean docker system
   become: yes
   ansible.builtin.cron:

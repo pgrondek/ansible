@@ -1,24 +1,32 @@
 ---
 - become: yes
   block:
-  - name: install nfs-client
+  - name: "[Ubuntu] install nfs-client"
+    when: ansible_distribution == "Ubuntu"
     apt:
       update_cache: yes
       pkg:
         - nfs-common
 
-  - name: update rpc config
+  - name: "[Arch] install nfs-client"
+    when: ansible_distribution == "Archlinux"
+    become: yes
+    community.general.pacman:
+      update_cache: yes
+      name: nfs-utils
+
+  - name: "[Generic] update rpc config"
     copy:
       src: lib/systemd/system/rpc-statd.service
       dest: /lib/systemd/system/rpc-statd.service
 
-  - name: stop and disable rpc
+  - name: "[Generic] stop and disable rpc"
     systemd:
       name: rpc-statd
       state: stopped
       enabled: false
 
-  - name: start and enable rpc
+  - name: "[Generic] start and enable rpc"
     systemd:
       name: rpc-statd
       state: started

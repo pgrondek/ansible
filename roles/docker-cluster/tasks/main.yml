@@ -5,18 +5,12 @@
 - import_tasks: install-docker-io.yml
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version != "18.04"
 
+- import_tasks: install-arch-docker.yml
+  when: ansible_distribution == "Archlinux"
+
 - import_tasks: dependencies.yml
 
 - import_tasks: nfs-client.yml
 
-- import_tasks: gluster.yml
-
-- import_tasks: hearthbeat.yml
-
-- import_tasks: hostfile.yml
-
-- import_tasks: docker-watcher.yml
-
-- import_tasks: ssh-external.yml
-
 - import_tasks: docker-cron.yml
+  when: ansible_distribution == "Ubuntu"
