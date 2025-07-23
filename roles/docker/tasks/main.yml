@@ -3,6 +3,10 @@
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "18.04"
 
 - import_tasks: install-docker-io.yml
-  when: ansible_distribution == "Ubuntu" and ansible_distribution_version != "18.04"
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_version != "18.04") or
+        (ansible_distribution == "Debian" and distribution_major_version == "12")
+
+- import_tasks: install-arch-docker.yml
+  when: ansible_distribution == "Archlinux"
 
 - import_tasks: docker-cron.yml
