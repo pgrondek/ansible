@@ -1,5 +1,0 @@
----
-telegraf:
-  release: 1.26.2-1
-  flavour: prometheus
-  arch: mipsel

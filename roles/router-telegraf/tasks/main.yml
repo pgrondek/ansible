@@ -1,3 +1,0 @@
----
-- import_tasks: install_telegraf.yml
-  become: yes
